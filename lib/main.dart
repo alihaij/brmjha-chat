@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'chat.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -29,6 +33,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
     String nickName = '';
+    DatabaseReference dbRef = FirebaseDatabase.instance.ref();
 
     return Scaffold(
       appBar: AppBar(
@@ -70,10 +75,18 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: () {
                         final isValidForm = formKey.currentState!.validate();
                         if (isValidForm) {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return ChatScreen(nickName);
-                          }));
+                          dbRef
+                              .child('nick Name')
+                              .push()
+                              .set(nickName)
+                              .then((value) => {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) {
+                                        return ChatScreen(nickName);
+                                      }),
+                                    )
+                                  });
                         }
                       },
                       child: const Text(

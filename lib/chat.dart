@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'const.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen(this.name, {Key? key}) : super(key: key);
@@ -17,8 +18,41 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('welcome ${widget.name}'),
+      appBar: AppBar(
+        leading: null,
+        actions: <Widget>[
+          IconButton(icon: const Icon(Icons.close), onPressed: () async {}),
+        ],
+        title: const Text('Brmjha Chat'),
+        backgroundColor: Colors.lightBlueAccent,
+      ),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Container(
+              decoration: kMessageContainerDecoration,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    child: TextField(
+                      decoration: kMessageTextFieldDecoration,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Send',
+                      style: kSendButtonTextStyle,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
