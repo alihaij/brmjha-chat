@@ -1,3 +1,4 @@
+import 'chat.dart';
 import 'package:flutter/material.dart';
 
 class AuthForm extends StatefulWidget {
@@ -31,6 +32,8 @@ class _AuthFormState extends State<AuthForm> {
         _isLogin,
         context,
       );
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => ChatScreen()));
     }
   }
 
@@ -62,8 +65,8 @@ class _AuthFormState extends State<AuthForm> {
                 if (!_isLogin)
                   TextFormField(
                     validator: (value) {
-                      if (value!.isEmpty || value.length < 4) {
-                        return ' Please Enter User Name more than 4 character';
+                      if (value!.isEmpty || value.length < 3) {
+                        return ' Please Enter User Name more than 2 character';
                       } else {
                         return null;
                       }
