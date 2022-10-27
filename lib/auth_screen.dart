@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'auth_form.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'chatscreen.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class _AuthScreenState extends State<AuthScreen> {
     BuildContext context,
   ) async {
     try {
-      UserCredential userCredential;
+      UserCredential userCredential; 
       if (isLogin) {
         userCredential = await _fireAuth.signInWithEmailAndPassword(
             email: email, password: password);

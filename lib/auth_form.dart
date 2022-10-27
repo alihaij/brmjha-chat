@@ -1,4 +1,4 @@
-import 'chat.dart';
+import 'chatscreen.dart';
 import 'package:flutter/material.dart';
 
 class AuthForm extends StatefulWidget {
