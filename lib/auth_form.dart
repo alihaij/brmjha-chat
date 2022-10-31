@@ -33,7 +33,7 @@ class _AuthFormState extends State<AuthForm> {
         context,
       );
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => ChatScreen()));
+          context, MaterialPageRoute(builder: (context) => const ChatScreen()));
     }
   }
 

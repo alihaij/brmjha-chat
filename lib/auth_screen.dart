@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'chatscreen.dart';
 
 class AuthScreen extends StatefulWidget {
+  // static const String id = 'auth_screen';
   const AuthScreen({Key? key}) : super(key: key);
 
   @override
@@ -22,7 +23,7 @@ class _AuthScreenState extends State<AuthScreen> {
     BuildContext context,
   ) async {
     try {
-      UserCredential userCredential; 
+      UserCredential userCredential;
       if (isLogin) {
         userCredential = await _fireAuth.signInWithEmailAndPassword(
             email: email, password: password);

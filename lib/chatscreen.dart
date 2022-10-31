@@ -6,7 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 User? loggedInUser = FirebaseAuth.instance.currentUser;
 
 class ChatScreen extends StatefulWidget {
-  static const String id = 'chat_screen';
+  // static const String id = 'chat_screen';
 
   const ChatScreen({Key? key}) : super(key: key);
   @override
@@ -59,7 +59,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 Navigator.pop(context);
               }),
         ],
-        title: const Text('⚡️Chat'),
+        title: const Text('Brmjha Chat'),
         backgroundColor: Colors.lightBlueAccent,
       ),
       body: SafeArea(

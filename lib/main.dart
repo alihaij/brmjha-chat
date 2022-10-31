@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'auth_form.dart';
 import 'auth_screen.dart';
+import 'chatscreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +16,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: AuthScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => AuthScreen(),
+        '/chat_screen': (context) => ChatScreen(),
+        // '/register_screen': (context) => AuthScreen(),
+        // '/login_screen': (context) => AuthScreen(),
+      },
     );
   }
 }
